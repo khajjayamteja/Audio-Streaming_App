@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Audio Call UI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row my-3 text-center">
+            <div id="user-name" class="col-12"></div>
+            <button id="call" class="btn btn-primary col-4 col-md-2 mx-1">Call!</button>
+            <button id="hangup" class="btn btn-danger col-4 col-md-2 mx-1">Hangup</button>
+            <div id="answer" class="col-12 mt-3"></div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-12">
+                <label for="audio-input">Audio Input:</label>
+                <select id="audio-input" class="form-select"></select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-12">
+                <label for="audio-output">Audio Output:</label>
+                <select id="audio-output" class="form-select"></select>
+            </div>
+        </div>
+
+        <div class="row mb-3 text-center">
+            <button id="toggle-filter" class="btn btn-secondary col-6 col-md-3 mx-auto">Toggle Filter</button>
+        </div>
+
+        <div id="audios" class="row mb-4">
+            <div class="col-12 mb-3">
+                <audio id="local-audio" autoplay playsinline controls></audio>
+            </div>
+            <div class="col-12 mb-3">
+                <audio id="remote-audio" autoplay playsinline controls></audio>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col">
+                <button id="toggle-visualization" class="btn btn-info mb-3 w-100">Switch to Frequency Spectrum</button>
+                <canvas id="visualizer" width="600" height="300" class="border w-100"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="scripts.js"></script>
+    <script src="socketListeners.js"></script>
+</body>
+</html>
